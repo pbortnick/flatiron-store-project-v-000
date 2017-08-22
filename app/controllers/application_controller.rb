@@ -9,17 +9,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def initialize_cart
-    @cart = current_user.current_cart
-    if @cart.nil?
-      @cart = Cart.create
-      @cart.user = current_user
-      current_user.current_cart = @cart
-      current_user.save
-      @cart.save
-    end
-  end
-
   def current_cart=(cart)
     User.cart_id = cart.id if cart
     @current_cart = cart
