@@ -4,17 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
   has_many :carts
-
-  def current_cart=(cart)
-    if cart.class == Cart
-      @current_cart=cart
-    else
-      raise ArgumentError.exception("expected Cart class")
-    end
-  end
-
-  def current_cart
-    @current_cart
-  end
+  has_one :current_cart, class: "Cart", foreign_id: 'user_id'
 
 end
