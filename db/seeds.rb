@@ -1,3 +1,5 @@
+User.create(email: "janedoe@flatironschool.com", password: "password")
+
 10.times do 
   Item.create(
     title: Faker::Commerce.product_name, 
