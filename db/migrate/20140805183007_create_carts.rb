@@ -4,6 +4,8 @@ class CreateCarts < ActiveRecord::Migration
       t.integer :user_id
 
       t.timestamps null: false
+      t.belongs_to :user
+      t.string :status, default: "unsubmitted"
     end
   end
 end

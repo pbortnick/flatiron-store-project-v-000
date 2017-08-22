@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 10.times do
+=======
+User.create(email: "janedoe@flatironschool.com", password: "password")
+
+10.times do 
+>>>>>>> 9a1efe8a44b879e895c4fe014f1733e369cd44fd
   Item.create(
     title: Faker::Commerce.product_name,
     inventory: Faker::Number.number(2),
