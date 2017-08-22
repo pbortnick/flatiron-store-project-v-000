@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :rememberable, :validatable
+  
+  has_many :carts
+  has_one :current_cart, class: "Cart", foreign_key: 'user_id'
 
   def current_cart=(cart)
     if cart.nil?
@@ -19,8 +22,5 @@ class User < ActiveRecord::Base
       Cart.find(current_cart_id)
     end
   end
-
-  has_many :carts
-  has_one :current_cart, class: "Cart", foreign_key: 'user_id'
 
 end
