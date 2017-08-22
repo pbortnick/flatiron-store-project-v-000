@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 10.times do
-=======
-User.create(email: "janedoe@flatironschool.com", password: "password")
+  User.create(email: "janedoe@flatironschool.com", password: "password")
+end
 
-10.times do 
->>>>>>> 9a1efe8a44b879e895c4fe014f1733e369cd44fd
+10.times do
   Item.create(
     title: Faker::Commerce.product_name,
     inventory: Faker::Number.number(2),
@@ -20,4 +18,4 @@ Item.all.each do |item|
   counter += 1
 end
 
-User.create(name: 'Pam', email: 'pbortnick@gmail.com', password: 'password')
+User.create(email: 'pbortnick@gmail.com', password: 'password')
