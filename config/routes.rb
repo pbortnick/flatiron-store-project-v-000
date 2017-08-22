@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :carts
   resources :line_items, only: [:create]
   resources :orders, only: [:show]
+  resources :users
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   post 'carts/:id/checkout', to: 'carts#checkout', as: 'checkout'
 
