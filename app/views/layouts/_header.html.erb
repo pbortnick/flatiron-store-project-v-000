@@ -7,7 +7,6 @@
       <% else %>
         <%= link_to("Sign up", new_user_registration_path) %><br>
         <%= link_to("sign in", new_user_session_path) %><br>
-        <%= link_to("Sign out", destroy_user_session_path, :method => :delete) %>
       <% end %>
 
       <% if !!current_user && !!current_cart %>

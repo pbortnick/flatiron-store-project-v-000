@@ -12,7 +12,7 @@ class Cart < ActiveRecord::Base
   end
 
   def add_item(item_id)
-    found_item = line_items.find {|line_item| line_item.item.id == item_id}
+    found_item = line_items.find_by(item_id: item_id)
     if found_item
       found_item.quantity += 1
       found_item

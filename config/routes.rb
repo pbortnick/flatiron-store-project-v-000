@@ -5,12 +5,8 @@ Rails.application.routes.draw do
 
   resources :items, only: [:show, :index]
   resources :categories, only: [:show, :index]
-  resources :users, only: [:show]
   resources :carts
-  resources :line_items, only: [:create]
+  post '/line_items/:item_id' => 'line_items#create', as: "line_items"
   resources :orders, only: [:show]
-  resources :users
-
-  post 'carts/:id/checkout', to: 'carts#checkout', as: 'checkout'
 
 end

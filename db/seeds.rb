@@ -1,6 +1,4 @@
-10.times do
-  User.create(email: "janedoe@flatironschool.com", password: "password")
-end
+User.create(email: 'pbortnick@gmail.com', password: 'password')
 
 10.times do
   Item.create(
@@ -17,5 +15,3 @@ Item.all.each do |item|
   item.save
   counter += 1
 end
-
-User.create(email: 'pbortnick@gmail.com', password: 'password')

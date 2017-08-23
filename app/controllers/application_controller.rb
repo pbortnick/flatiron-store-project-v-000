@@ -8,15 +8,9 @@ class ApplicationController < ActionController::Base
   private
 
   def initialize_cart
-    @cart = current_cart
-    if @cart.nil?
-      current_cart = Cart.create
-      @cart = current_cart
+    if current_cart.nil?
+      current_user.current_cart = current_user.carts.create
     end
-  end
-
-  def current_cart=(cart)
-    current_user.current_cart = cart
   end
 
   def current_cart
