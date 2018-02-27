@@ -1,3 +1,4 @@
+require 'pry'
 class Cart < ActiveRecord::Base
   belongs_to :user
   has_many :line_items
@@ -12,7 +13,8 @@ class Cart < ActiveRecord::Base
   end
 
   def add_item(item_id)
-    found_item = line_items.find_by(item_id: item_id)
+    found_item = self.line_items.find_by(item_id: item_id)
+    binding.pry
     if found_item
       found_item.quantity += 1
       found_item
